@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
+/* Colour tokens from docs/03-design-tokens.md. Do not add other colours. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --surface-alt: #fbfaf7;
+  --nav-active: #f1f0ec;
+  --border: #eaeaea;
+  --text: #111111;
+  --text-2: #2f3437;
+  --text-muted: #787774;
+  --green-bg: #edf3ec;
+  --green-fg: #346538;
+  --blue-bg: #e1f3fe;
+  --blue-fg: #1f6c9f;
+  --yellow-bg: #fbf3db;
+  --yellow-fg: #956400;
+  --red-bg: #fdebec;
+  --red-fg: #9f2f2d;
+  --grey-bg: #f1f0ec;
+  --grey-fg: #5c5a55;
 }
 
+/* Tailwind utilities, e.g. bg-surface, text-text-muted, border-border. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-nav-active: var(--nav-active);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-muted: var(--text-muted);
+  --color-green-bg: var(--green-bg);
+  --color-green-fg: var(--green-fg);
+  --color-blue-bg: var(--blue-bg);
+  --color-blue-fg: var(--blue-fg);
+  --color-yellow-bg: var(--yellow-bg);
+  --color-yellow-fg: var(--yellow-fg);
+  --color-red-bg: var(--red-bg);
+  --color-red-fg: var(--red-fg);
+  --color-grey-bg: var(--grey-bg);
+  --color-grey-fg: var(--grey-fg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* The design has no dark mode. Do not add one unless asked. */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), "SF Pro Display", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
 }
