@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { projects } from "@/lib/mock-data";
 
 export default function ProjectsPage() {
@@ -19,7 +20,11 @@ export default function ProjectsPage() {
         <tbody>
           {projects.map((project) => (
             <tr key={project.id} className="border-b">
-              <td className="py-2">{project.name}</td>
+              <td className="py-2">
+                <Link href={`/projects/${project.id}`} className="font-medium underline">
+                  {project.name}
+                </Link>
+              </td>
               <td className="py-2">{project.status}</td>
               <td className="py-2">{project.meetings}</td>
               <td className="py-2">{project.documents}</td>
