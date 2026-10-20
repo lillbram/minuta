@@ -1,6 +1,11 @@
 import { notFound } from "next/navigation";
 import { projects } from "@/lib/mock-data";
 
+// Build one static page per project id. Needed because params is read at build time.
+export function generateStaticParams() {
+  return projects.map((project) => ({ projectId: project.id }));
+}
+
 export default async function ProjectDetailPage({
   params,
 }: {
