@@ -1,0 +1,32 @@
+// Database tables for the app. Field names follow docs/06-database.md.
+// Ids are text (for example "northwind-phase-one") so the mock data loads as-is.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ProjectStatus {
+  Active
+  Archived
+}
+
+model Project {
+  id        String        @id
+  tenantId  String
+  name      String
+  client    String
+  status    ProjectStatus
+  meetings  Int           @default(0)
+  documents Int           @default(0)
+  designs   Int           @default(0)
+  testCases Int           @default(0)
+  updated   String
+  createdAt DateTime      @default(now())
+
+  @@index([tenantId])
+}
